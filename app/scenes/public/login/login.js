@@ -1,5 +1,6 @@
 import { navigateTo } from "../../../Router";
 
+
 export function Login() {
     document.getElementById('root').innerHTML = `
     <form>
@@ -17,16 +18,20 @@ export function Login() {
     $myForm.addEventListener('submit', async (event) => {
         event.preventDefault();
 
-        if(!$userEmail.value || $userPassword.value){
+        if(!$userEmail.value || !$userPassword.value){
             alert('Completa los campos')
         }
 
-        const users = await fetch('http://localhost:3000/users')
-        const user = users.find(user => users.email === $userEmail.value && users.password === $userPassword.value);
+        const users = await fetch('http://localhost:3000/users/2')
+
+
+        const userJson = await users.json();
+
+        const user = userJson.find(e => e.email === $userEmail);
         if(user){
             const token = Math.random().toString(36).substring(2);
             localStorage.setItem('token',token);
-            navigateTo('/dashboard');
+            navigateTo('/');
         } else {
             alert("Credenciales incorrectas");
         }

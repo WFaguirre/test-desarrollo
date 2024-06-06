@@ -1,6 +1,5 @@
 import { navigateTo } from "../../../Router";
 
-
 export function Dashboard() {
     document.getElementById('root').innerHTML = `
     <h1>Bienvenido a Concord</h1>
@@ -11,6 +10,7 @@ export function Dashboard() {
     
     <div class="cartagena">
     <p>Cartagena</p>
+    <img>
     <button type="submit" id="costa">Reserva ya</button>
     </div>
 

@@ -5,7 +5,7 @@ import { Login } from "./scenes/public/login/login"
  
 export const routes = {
     public : [
-        {path: '/dashboard', scenes: Dashboard},
+        {path: '/', scenes: Dashboard},
         {path: '/not-found', scenes: Notfound},
         {path: '/register', scenes: Register},
         {path: '/login', scenes: Login}
